@@ -1,0 +1,385 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+.hide,
+.slider,
+footer.return-btn {
+  display: none;
+}
+
+.modeEnabled.moon svg path,
+.return-btn svg path {
+  fill: #c4c4cc;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  color: #323238;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+nav {
+  position: fixed;
+  top: clamp(1.6rem, 6vw, 6rem);
+  right: clamp(1.6rem, 6vw, 6rem);
+  animation: opacity 2500ms 350ms forwards;
+}
+
+main {
+  width: clamp(26rem, 26rem + 30vw, 92.1rem);
+  place-content: center;
+  text-align: center;
+  margin: auto;
+  display: grid;
+  gap: 4rem;
+  border-radius: 2.4rem;
+  padding: 3.8rem 2rem;
+  background-color: rgba(217, 217, 217, 0.75);
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.5);
+}
+
+.bg-forest,
+.bg-rain,
+.bg-coffee,
+.bg-fire {
+  position: absolute;
+  z-index: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+#clock {
+  margin: auto;
+}
+
+#timer {
+  display: flex;
+  font-size: clamp(10.7rem, 30vw, 12.6rem);
+  line-height: clamp(12.5rem, 30vw, 14.7rem);
+  animation: topdown 1500ms 350ms forwards;
+}
+
+#controls {
+  display: flex;
+  gap: 4rem;
+  animation: opacity 2500ms 350ms forwards;
+}
+
+#modes {
+  display: flex;
+  justify-content: space-between;
+}
+
+#modes .forest,
+#modes .rain,
+#modes .coffee,
+#modes .fire {
+  animation: downtop 1500ms 350ms forwards;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#modes button {
+  background-color: #f8f8f8;
+  border-radius: clamp(0.8rem, 0.8rem + 1vw, 2.4rem);
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.5);
+  width: clamp(4.7rem, 4.7rem + 2.5vw, 6rem);
+  height: clamp(5.3rem, 5.3rem + 2.5vw, 6rem);
+}
+
+#modes button:hover {
+  background-color: #02799d;
+  transition: 400ms;
+}
+
+#modes button:focus {
+  box-shadow: none;
+  background-color: #02799d;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.forest svg,
+.rain svg,
+.coffee svg,
+.fire svg {
+  width: 50%;
+}
+
+.sun svg path,
+.moon svg path,
+.play svg path,
+.pause svg path,
+.stop svg path,
+.more-min svg path,
+.less-min svg path,
+.forest svg path,
+.rain svg path,
+.coffee svg path,
+.fire svg path {
+  fill: #323238;
+}
+
+footer {
+  position: fixed;
+  bottom: clamp(1.6rem, 6vw, 6rem);
+  right: clamp(1.6rem, 6vw, 6rem);
+  animation: opacity 2500ms 350ms forwards;
+}
+
+/* ===================== SLIDER ===================== */
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+#slider-cell {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 0.8rem;
+  border-radius: 0.5rem;
+  background-color: #323238;
+  outline: none;
+  opacity: 1;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+#slider-cell::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background-color: #323238;
+  cursor: pointer;
+}
+
+/* ==================== DARK MODE ==================== */
+
+body.dark {
+  background-color: #121214;
+  color: white;
+}
+
+body.dark main {
+  background: rgba(82, 82, 92, 0.75);
+}
+
+body.dark #controls svg path,
+body.dark #modes svg path,
+body.dark .sun svg path,
+body.dark .moon svg path,
+body.dark .return-btn svg path {
+  fill: #c4c4cc;
+}
+
+body.dark #modes button {
+  background-color: #29292e;
+}
+
+body.dark #modes button:hover {
+  background-color: #0a3442;
+  transition: 400ms;
+}
+
+body.dark #modes button:focus {
+  box-shadow: none;
+  background-color: #0a3442;
+  box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+body.dark #slider-cell,
+body.dark .slider {
+  background-color: #f8f8f8;
+}
+
+body.dark #slider-cell::-webkit-slider-thumb,
+body.dark .slider::-webkit-slider-thumb {
+  background-color: #f8f8f8;
+}
+
+/* =================================================== */
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes topdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes downtop {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes leftrighttop {
+  0% {
+    opacity: 0;
+    transform: translateX(-25px) translateY(-25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rightlefttop {
+  0% {
+    opacity: 0;
+    transform: translateX(25px) translateY(-25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes leftrightbottom {
+  0% {
+    opacity: 0;
+    transform: translateX(-25px) translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes rightleftbottom {
+  0% {
+    opacity: 0;
+    transform: translateX(25px) translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    width: clamp(41.2rem, 41.2rem + 30vw, 92.1rem);
+    display: flex;
+    flex-direction: row;
+    gap: clamp(4rem, 4rem + 8vw, 19.2rem);
+    padding: 5.6rem;
+  }
+
+  #modes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.2rem;
+  }
+
+  #modes button {
+    border-radius: 2.4rem;
+    width: clamp(3rem, 1rem + 8vw, 13.8rem);
+    height: clamp(3rem, 1rem + 9vw, 15.2rem);
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.5);
+    margin: auto;
+  }
+
+  #modes .forest {
+    animation: leftrighttop 1500ms 350ms forwards;
+  }
+
+  #modes .rain {
+    animation: rightlefttop 1500ms 350ms forwards;
+  }
+
+  #modes .coffee {
+    animation: leftrightbottom 1500ms 350ms forwards;
+  }
+
+  #modes .fire {
+    animation: rightleftbottom 1500ms 350ms forwards;
+  }
+
+  .slider-container {
+    display: none;
+  }
+
+  .forest .slider,
+  .rain .slider,
+  .coffee .slider,
+  .fire .slider {
+    display: inline-block;
+    visibility: hidden;
+    position: absolute;
+    right: 20%;
+    bottom: 0.75rem;
+    z-index: 9999;
+  }
+
+  .slider {
+    -webkit-appearance: none;
+    width: 60%;
+    height: 0.4rem;
+    border-radius: 0.5rem;
+    background-color: #323238;
+    outline: none;
+    opacity: 1;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background-color: #323238;
+    cursor: pointer;
+  }
+}
