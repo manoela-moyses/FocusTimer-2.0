@@ -1,4 +1,4 @@
-# FocusTimer - Desafio Avançado
+# FocusTimer 2.0 - Desafio Avançado 💜🚀
 
 Esta é a versão final do desafio proposto no _Stage 05 - Avançando no JavaScript_ do programa Explorer da Rocketseat.
 A proposta era criar um temporizador para estudo, no estilo Pomodoro, praticando e revendo tudo o que foi ensinado nas aulas.
